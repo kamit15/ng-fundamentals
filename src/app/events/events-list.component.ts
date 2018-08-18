@@ -7,9 +7,13 @@ import { Component } from '@angular/core'
     <div>
     <h1>Upcoming Angular Events</h1>
     <hr/> 
-    <event-thumbnail (eventClick)="handleEventClicked($event)"
+    <!-- <event-thumbnail (eventClick)="handleEventClicked($event)"-->
+    <event-thumbnail #thumbnail
     [event]="event1"></event-thumbnail>
     </div>
+    <h3>{{thumbnail.someProperty}}</h3>
+    <button class="btn btn-primary" (click)="thumbnail.logFoo()">
+    Log Foo</button>
     `
 })
 
@@ -28,7 +32,7 @@ export class EventListComponent{
         }
     }
 
-    handleEventClicked(data) {
-        console.log('received:',data)
-    }
+    // handleEventClicked(data) {
+    //     console.log('received:',data)
+    // }
 }
